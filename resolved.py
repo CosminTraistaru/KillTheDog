@@ -41,6 +41,13 @@ def create_letters_dict():
     return letters_dict
 
 
+def check_result():
+    create_letters_dict()
+    keys = [key for index in ransom_letter_index_list for key in letters_dict
+            if index in letters_dict[key]]
+    print keys
+
+
 def main():
     """Reading the ransom letter and selecting the needed letters for it, from
     the dict with all the occurrences we pick a letter then randomly select one
@@ -57,14 +64,6 @@ def main():
     print ransom_letter_index_list
     print ""
     check_result()
-
-
-def check_result():
-    create_letters_dict()
-    for index in ransom_letter_index_list:
-        for key in letters_dict:
-            if index in letters_dict[key]:
-                print key,
 
 
 if __name__ == '__main__':
